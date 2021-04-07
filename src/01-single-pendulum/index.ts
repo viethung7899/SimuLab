@@ -1,14 +1,50 @@
 import * as p5 from 'p5';
 
-const sketch = (p: p5) => {
-  p.setup = () => {
-    p.createCanvas(500, 500);
+const sketchDiv = document.querySelector<HTMLElement>('.sketch');
+const width = window.innerWidth;
+const height = window.innerHeight;
 
-  }
+const gravity = 1.0;
+
+const drawPlatform = (p: p5, origin: p5.Vector) => {
+  p.strokeWeight(0);
+  p.fill(127);
+  p.rect(origin.x - 30, origin.y - 30, 60, 30);
+};
+
+const drawString = (p: p5, origin: p5.Vector, ball: p5.Vector) => {
+  p.stroke(255);
+  p.strokeWeight(4);
+  p.line(origin.x, origin.y, ball.x, ball.y);
+};
+
+const drawBall = (p: p5, ball: p5.Vector) => {
+  p.stroke(255);
+  p.strokeWeight(4);
+  p.fill(127);
+  p.circle(ball.x, ball.y, 60);
+};
+
+const sketch = (p: p5) => {
+  let angle = p.PI / 4;
+  let len = 300;
+  let origin = p.createVector(width / 2, height / 3);
+  let ball = p.createVector();
+
+  p.setup = () => {
+    p.createCanvas(width, height);
+  };
 
   p.draw = () => {
     p.background(51);
-  }
+
+    ball.x = len * p.sin(angle) + origin.x;
+    ball.y = len * p.cos(angle) + origin.y;
+
+    drawPlatform(p, origin);
+    drawString(p, origin, ball);
+    drawBall(p, ball);
+  };
 };
 
-new p5(sketch);
+new p5(sketch, sketchDiv);

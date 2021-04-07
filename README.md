@@ -1,3 +1,3 @@
 # Science lab
 
-A collection of small experiments about stimulations, science, algorithm, and more
+A collection of small experiments about simulations, science, algorithms, and more

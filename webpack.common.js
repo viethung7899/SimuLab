@@ -1,5 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -9,11 +10,11 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.(scss|sass|css)$/i,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.tsx?/,
+        test: /\.tsx?/i,
         use: 'ts-loader',
         exclude: /node_modules/,
       },

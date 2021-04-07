@@ -1,10 +1,12 @@
 import * as p5 from 'p5';
+import './style.scss';
 
 const sketchDiv = document.querySelector<HTMLElement>('.sketch');
 const width = window.innerWidth;
 const height = window.innerHeight;
 
-const gravity = 1.0;
+const gravity = 1000.0;
+const dT = 1 / 60;
 
 const drawPlatform = (p: p5, origin: p5.Vector) => {
   p.strokeWeight(0);
@@ -26,11 +28,14 @@ const drawBall = (p: p5, ball: p5.Vector) => {
 };
 
 const sketch = (p: p5) => {
-  let angle = p.PI / 4;
-  let len = 300;
-  let origin = p.createVector(width / 2, height / 3);
+  let len = 200;
+  let origin = p.createVector(width / 2, height / 4);
   let ball = p.createVector();
-
+  
+  let angle = p.PI / 4;
+  let angleV = 0;
+  let angleA = 0;
+  
   p.setup = () => {
     p.createCanvas(width, height);
   };
@@ -44,6 +49,11 @@ const sketch = (p: p5) => {
     drawPlatform(p, origin);
     drawString(p, origin, ball);
     drawBall(p, ball);
+
+    // Update position
+    angleA = -gravity / len * p.sin(angle);
+    angleV += angleA * dT;
+    angle += angleV * dT;
   };
 };
 

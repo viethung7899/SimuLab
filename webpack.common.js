@@ -2,9 +2,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  entry: { 
-    main: './src/index.js', 
-    vendor: './src/vendor.js' 
+  entry: {
+    main: './src/index.ts',
+    pendulum: './src/01-single-pendulum/index.ts',
   },
   module: {
     rules: [
@@ -13,24 +13,22 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.html$/,
-        use: ['html-loader'],
-      },
-      {
-        test: /\.(svg|png|jpg|gif)$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[hash].[ext]',
-            outputPaths: 'asset',
-          },
-        },
+        test: /\.tsx?/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/template.html',
+      template: './src/index.html',
+      chunks: ['main'],
+      filename: 'index.html',
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/01-single-pendulum/index.html',
+      chunks: ['pendulum'],
+      filename: '01-single-pendulum/index.html',
     }),
   ],
 };

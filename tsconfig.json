@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
-      "noImplicitAny": true,
-      "target": "ES5",
-      "module": "ES2015",
-      "sourceMap": true
+    "outDir": "./dist",
+    "target": "es5",
+    "module": "es6",
+    "jsx": "react",
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "allowSyntheticDefaultImports": true
   }
 }

@@ -4,7 +4,7 @@ const webpack = require('webpack');
 
 module.exports = {
   entry: {
-    main: './src/index.ts',
+    main: './src/index.tsx',
     pendulum: './src/01-single-pendulum/index.ts',
   },
   module: {
@@ -32,4 +32,8 @@ module.exports = {
       filename: '01-single-pendulum/index.html',
     }),
   ],
+  target: 'web',
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+  },
 };

@@ -14,7 +14,7 @@ class IconButton extends Component<ButtonProps> {
     const { buttonClass, icon, action = () => {} } = this.props;
     return (
       <button
-        className={`button ${buttonClass}`}
+        className={`button text-xl ${buttonClass}`}
         onClick={(e) => {
           e.preventDefault();
           e.stopPropagation();

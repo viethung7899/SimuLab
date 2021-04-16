@@ -8,7 +8,7 @@ const GithubButton = () => {
   };
 
   return (
-    <IconButton buttonClass="github-button" icon={faGithub} action={redirect} />
+    <IconButton buttonClass="normal-button" icon={faGithub} action={redirect} />
   );
 };
 

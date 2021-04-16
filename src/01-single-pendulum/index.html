@@ -9,10 +9,21 @@
 <body>
   <nav class="flex justify-between items-center p-2">
     <div class="text-2xl font-bold">Single Pendulum</div>
-    <div class="flex gap-x-2" id="buttons">
-      <button class="button play-button">Play</button>
-      <a href="/" role="button" class="button github-button">Github</a>
+    <div class="controller">
+      <div class="field">
+        <p>Angle</p>
+        <input name="angle" />
+      </div>
+      <div class="field">
+        <p>Velocity</p>
+        <input name="velocity" />
+      </div>
+      <div class="field">
+        <p>Length</p>
+        <input name="length" />
+      </div>
     </div>
+    <div class="flex gap-x-2" id="buttons"></div>
   </nav>
   <div class="sketch"></div>
 </body>

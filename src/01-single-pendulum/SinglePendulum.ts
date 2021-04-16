@@ -1,7 +1,7 @@
 import p5, { Vector } from 'p5';
 import { toDegrees, toRadians } from '../utils/angle';
-import './button/button';
-import PlayButton from './button/PlayButton';
+import './buttons/buttons';
+import PlayButton from './buttons/PlayButton';
 import { angleInput, lengthInput, velocityInput } from './input';
 
 const playButton = <PlayButton>(window as any).playButton;

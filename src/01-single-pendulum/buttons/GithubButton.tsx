@@ -4,7 +4,7 @@ import IconButton from './IconButton';
 
 const GithubButton = () => {
   const redirect = () => {
-    window.location.href = '/';
+    window.location.href = 'https://github.com/viethung7899/science-lab/tree/main/src/01-single-pendulum';
   };
 
   return (

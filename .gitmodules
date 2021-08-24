@@ -1,3 +1,6 @@
 [submodule "simulab-source"]
 	path = simulab-source
 	url = https://github.com/viethung7899/simulab-source.git
+[submodule "simulab-data"]
+	path = simulab-data
+	url = https://github.com/viethung7899/simulab-data.git
